@@ -32,10 +32,9 @@ public class CamCon : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		focus = tTarget.position - transform.position;
-		if (focus.magnitude >= keepDistance) {
-			focus = focus.normalized*keepDistance;
-			transform.position = tTarget.position - focus;
-		} else if (!tAnim.GetBool("IsWalking")) {
+		focus = focus.normalized*keepDistance;
+		transform.position = tTarget.position - focus;
+		if (!tAnim.GetBool("IsWalking")) {
 			t++;
 			if (t > waitTime) {
 				t = waitTime;
